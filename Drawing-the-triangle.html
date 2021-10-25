@@ -20,7 +20,7 @@
 
      //Tạo tọa độ đỉnh
      var vertices = [-0.5, 0.5, -0.5, -0.5, 0.0, -0.5,];
-     indices=[0,1,2];
+     indices=[0,1,0,2,0];
 
      // Tạo buffer object
      var vertex_buffer = gl.createBuffer();
@@ -84,7 +84,8 @@
      //Lấy attribute location của shader program
      var coord = gl.getAttribLocation(shaderProgram, "coordinates");
 
-     gl.vertexAttribPointer(coord, 2, gl.FLOAT, false, 0, 0);
+     gl.vertexAttribPointer( coord, 2, gl.FLOAT, false, 0, 0);
+     // địa chỉ, cỡm 
 
      gl.enableVertexAttribArray(coord);
 
@@ -104,7 +105,7 @@
 
      // Vẽ hình yêu cầu ở đây là tam giác
      //gl.drawArrays(gl.TRIANGLES, 0, 3);
-     gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT,0);
+     gl.drawElements(gl.LINES, indices.length, gl.UNSIGNED_SHORT,0);
 
   </script>
 
